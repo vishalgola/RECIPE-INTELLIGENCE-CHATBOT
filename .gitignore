@@ -1,0 +1,11 @@
+.env
+data/
+myenv/
+myvenv/
+venv/
+.venv/
+__pycache__/
+.cache/
+.pytest_cache/
+*.pyc
+_old_backup/

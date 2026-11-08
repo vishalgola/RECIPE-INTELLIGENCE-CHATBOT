@@ -1,0 +1,20 @@
+[
+ {"id": "T1-followup-dairy", "task": 1, "turns": ["Find a penne pasta recipe.", "I cannot have dairy."],
+  "check": "no result of turn 2 has a dairy-lexicon hit (re-verified independently); result list non-empty or explicit no-match"},
+ {"id": "T1-aggregate", "task": 1, "turns": ["How many recipes contain both garlic and onion? What percentage of the dataset is that?"],
+  "check": "count equals brute-force recount; denominator equals number of loaded recipes"},
+ {"id": "T1-rank-steps", "task": 1, "turns": ["Among recipes containing tomato, which five have the fewest instruction steps?"],
+  "check": "returned step counts are non-decreasing; IDs shown"},
+ {"id": "T1-unsupported-nutrition", "task": 1, "turns": ["Find a penne pasta recipe.", "How many calories does the first one have?", "How long does it take to cook?"],
+  "check": "reply says the attribute is NOT AVAILABLE, gives no calorie number, and any time is only quoted from instruction text"},
+ {"id": "T2-match-followup", "task": 2, "turns": ["I have eggs, onions, tomatoes, and rice. Suggest five recipes using as many of these as possible, with no peanuts and at most six instruction steps. Prefer recipes that need the fewest additional ingredients.", "Exclude eggs too"],
+  "check": "all results <=6 steps, none contain peanut/egg group words; turn 2 differs from turn 1; top result uses at least 2 of the ingredients"},
+ {"id": "T2-no-match", "task": 2, "turns": ["I have peanut butter. Find recipes with no peanuts."],
+  "check": "reply says NO MATCH and shows no peanut recipe"},
+ {"id": "T3-weak-evidence", "task": 3, "turns": ["Take this banana bread recipe and remove eggs. Use only ingredients that appear in the dataset."],
+  "check": "reply cites recipe IDs, labels evidence strength, labels effects as predictions"},
+ {"id": "T3-dairy-cream", "task": 3, "turns": ["Replace cream in this pasta recipe without dairy."],
+  "check": "evidence section present; no dairy substitute proposed"},
+ {"id": "T3-no-vetted-substitute", "task": 3, "turns": ["Take this tomato soup recipe and remove tomatoes."],
+  "check": "system refuses to invent a substitute and says so"}
+]
