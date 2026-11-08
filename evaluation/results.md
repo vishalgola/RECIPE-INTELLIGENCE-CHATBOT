@@ -17,4 +17,4 @@ Dataset: 122971 recipes loaded (2193 records skipped: no title/ingredients).
 ## Baselines for: 'How many recipes contain both garlic and onion?'
 - **System (normalised, strict forms):** 15920 of 122971 (12.95%)
 - **Naive substring grep ('garlic' and 'onion' anywhere in the ingredient text):** 20245 - over-counts by 4325 because it also matches garlic powder/salt, onion powder, green onions, etc.
-- **One-shot gemini (no retrieval, forced to estimate):** (no API key set in .env - run with a key and paste the answer here)
+- **One-shot groq (no retrieval, forced to estimate):** I’m not able to examine the contents of that dataset directly, so I can’t give you an exact count. However, you can determine the number yourself by loading the three JSON files, iterating over each recipe, and checking whether both “garlic” and “onion” appear in the ingredient list (or in the recipe text). The total of recipes that meet both conditions will be the number you’re looking for. If you need help writing a script to do this, let me know!
